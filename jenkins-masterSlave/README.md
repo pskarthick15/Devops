@@ -95,7 +95,7 @@ sudo docker run -it -p 82:80 -d test
 ## 5. Build in the ci-cd pipeline for test and production servers.
   - Headover to manage jenkins -> manage plugins -> available.Now search for build pipeline,install the plugin.
   - In the jenkins home page click on the + sign near the All.
-  - Now click the Build pipeline view, name the view as CiCd.Also under Build pipeline view title give CiCd and with other options as default and click save.
+  - Now click the Build pipeline view, name the view as CiCd. Also under Build pipeline view title give CiCd and with other options as default and click save.
   
   ![jenkins16](https://github.com/kuluruvineeth/Devops/blob/main/jenkins-masterSlave/screenshots-2/2.40.png)
   
