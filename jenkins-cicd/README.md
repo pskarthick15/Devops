@@ -167,7 +167,7 @@ Okay, now we can start writing out the Jenkins pipeline for deploying the Spring
 ```
 stage("Git Clone"){
 
-        git credentialsId: 'GIT_HUB_CREDENTIALS', url: 'https://github.com/rahulwagh/k8s-jenkins-aws'
+        git credentialsId: 'GIT_HUB_CREDENTIALS', url: 'https://github.com/kuluruvineeth/k8s-jenkins-aws'
     }
 ```
 - Jenkins stage-2 : Gradle compilation and build
@@ -182,7 +182,7 @@ stage("Docker build"){
     sh 'docker version'
     sh 'docker build -t jhooq-docker-demo .'
     sh 'docker image list'
-    sh 'docker tag jhooq-docker-demo rahulwagh17/jhooq-docker-demo:jhooq-docker-demo'
+    sh 'docker tag jhooq-docker-demo kuluruvineeth/jhooq-docker-demo:jhooq-docker-demo'
 }
 
 stage("Push Image to Docker Hub"){
@@ -202,7 +202,7 @@ node {
 
     stage("Git Clone"){
 
-        git credentialsId: 'GIT_HUB_CREDENTIALS', url: 'https://github.com/rahulwagh/k8s-jenkins-aws'
+        git credentialsId: 'GIT_HUB_CREDENTIALS', url: 'https://github.com/kuluruvineeth/k8s-jenkins-aws'
     }
 
      stage('Gradle Build') {
@@ -215,15 +215,15 @@ node {
         sh 'docker version'
         sh 'docker build -t jhooq-docker-demo .'
         sh 'docker image list'
-        sh 'docker tag jhooq-docker-demo rahulwagh17/jhooq-docker-demo:jhooq-docker-demo'
+        sh 'docker tag jhooq-docker-demo kuluruvineeth/jhooq-docker-demo:jhooq-docker-demo'
     }
 
     withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')]) {
-        sh 'docker login -u rahulwagh17 -p $PASSWORD'
+        sh 'docker login -u kuluruvineeth -p $PASSWORD'
     }
 
     stage("Push Image to Docker Hub"){
-        sh 'docker push  rahulwagh17/jhooq-docker-demo:jhooq-docker-demo'
+        sh 'docker push  kuluruvineeth/jhooq-docker-demo:jhooq-docker-demo'
     }
  ```
  ![ec-2](https://github.com/kuluruvineeth/Devops/blob/main/jenkins-cicd/screenshots/1.22.png)
